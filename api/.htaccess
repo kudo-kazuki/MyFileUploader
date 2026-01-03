@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 環境変数設定
+    SetEnv APP_ENV production
+
+    # Authorization ヘッダーを PHP に渡す
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # 既存ファイル・ディレクトリはそのまま返す
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # それ以外はすべて index.php に転送
+    RewriteRule ^ index.php [L]
+</IfModule>
