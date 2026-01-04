@@ -80,7 +80,7 @@ input[type='time'],
 input[type='color'],
 textarea,
 select {
-    &:not(.el-input__inner) {
+    &:not(.el-input__inner):not(.el-select__input) {
         border: 1px solid #ccc;
         padding: 0.5rem;
         font-size: 1rem;

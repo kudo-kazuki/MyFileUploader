@@ -26,5 +26,6 @@ dist-ssr
 *.sw?
 
 ./vendor/
+vendor/
 /api/.env.production
 /api/Db/Seeds/SongsSeeder.php

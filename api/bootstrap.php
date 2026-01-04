@@ -10,3 +10,8 @@ date_default_timezone_set('Asia/Tokyo');
 // 共通関数
 require_once __DIR__ . '/Helpers/request.php';
 require_once __DIR__ . '/Helpers/response.php';
+
+define(
+    'UPLOAD_BASE_DIR',
+    realpath(__DIR__ . '/../storage/uploads')
+);

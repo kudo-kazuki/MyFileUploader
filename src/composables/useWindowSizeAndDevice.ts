@@ -1,6 +1,6 @@
 import { computed, type Ref, type ComputedRef } from 'vue'
 import { useWindowSize } from '@vueuse/core'
-import { BREAKPOINTS } from '@/constants/breakpoints'
+import { BREAKPOINTS } from '@/constants'
 
 export type DeviceType = 'pc' | 'tablet' | 'sp'
 

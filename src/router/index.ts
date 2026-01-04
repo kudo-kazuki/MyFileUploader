@@ -16,8 +16,12 @@ router.beforeEach((to, from, next) => {
     const isAdminPage = to.path.startsWith('/admin')
     const isAdminLogin = to.path === '/admin/login'
 
-    // 管理者ページにアクセス → ログインしてなければ /admin/login へ
-    if (isAdminPage && !isAdminLogin && !adminAuthStore.isAuthenticated) {
+    const isUploadPage = to.path.startsWith('/upload')
+
+    const needsAuth = isAdminPage || isUploadPage
+
+    // 認証必須ページに未ログインでアクセスした場合
+    if (needsAuth && !isAdminLogin && !adminAuthStore.isAuthenticated) {
         return next('/admin/login')
     }
 

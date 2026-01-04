@@ -6,13 +6,14 @@ import { useAdminAuthStore } from '@/stores/admin_auth'
 const { width, height, deviceType } = useWindowSizeAndDevice()
 const adminAuthStore = useAdminAuthStore()
 
-const name = ref('')
+const username = ref('')
 const password = ref('')
+
 const errorMessage = ref('')
 
 const handleLogin = async () => {
     try {
-        await adminAuthStore.login(name.value, password.value)
+        await adminAuthStore.login(username.value, password.value)
     } catch (error: any) {
         if (error) {
             errorMessage.value = error
@@ -35,7 +36,7 @@ const handleLogin = async () => {
 
             <div class="Login__inputWrap">
                 <label for="name">ユーザー名:</label>
-                <input type="text" v-model="name" id="name" required />
+                <input type="text" v-model="username" id="name" required />
             </div>
             <div class="Login__inputWrap">
                 <label for="password">パスワード:</label>
