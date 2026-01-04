@@ -1,22 +1,4 @@
 # =========================
-# 非公開ストレージ（最重要）
-# =========================
-# storage 配下への直接アクセスをすべて拒否
-<IfModule mod_authz_core.c>
-  <Directory "storage">
-    Require all denied
-  </Directory>
-</IfModule>
-
-# Apache 2.2 互換（念のため）
-<IfModule !mod_authz_core.c>
-  <Directory "storage">
-    Order allow,deny
-    Deny from all
-  </Directory>
-</IfModule>
-
-# =========================
 # SPA / フロントコントローラ
 # =========================
 <IfModule mod_rewrite.c>
@@ -27,6 +9,6 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # それ以外は index.html にフォールバック
+  # それ以外は index.html
   RewriteRule . /index.html [L]
 </IfModule>

@@ -169,7 +169,12 @@ onMounted(fetchFolderList)
 
         <el-scrollbar>
             <div class="Page__inner">
-                <h1>ファイルアップロード</h1>
+                <h1 class="Page__h1">
+                    <span>ファイルアップロード</span>
+                    <router-link class="Page__h1Link" to="/upload/list"
+                        >ファイル一覧へ</router-link
+                    >
+                </h1>
 
                 <el-alert
                     v-if="errorMessage"
@@ -256,6 +261,16 @@ onMounted(fetchFolderList)
 
 <style lang="scss" scoped>
 .Page {
+    &__h1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__h1Link {
+        font-size: 15px;
+    }
+
     &__inner {
         padding: 16px;
     }

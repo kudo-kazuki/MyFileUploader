@@ -186,7 +186,12 @@ onMounted(fetchFolderList)
         />
 
         <header class="Page__header">
-            <h1>ファイル一覧</h1>
+            <h1 class="Page__h1">
+                <span>ファイル一覧</span
+                ><router-link class="Page__h1Link" to="/upload"
+                    >アップロードへ</router-link
+                >
+            </h1>
 
             <p v-if="isLoadingFolderLst">フォルダ読み込み中</p>
 
@@ -332,6 +337,16 @@ onMounted(fetchFolderList)
         flex-shrink: 0;
         padding: 12px 16px 16px;
         box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &__h1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__h1Link {
+        font-size: 15px;
     }
 
     &__inner {
